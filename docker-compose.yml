@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+   ynksource-frontend:
+    container_name: ynksource-frontendv2
+    image: ynksource-frontend
+    build:
+      context: .
+    ports:
+      - 3000:3000
+   ynksource-backend:
+    container_name: ynksource-backendv2
+    image: ynksource-backend
+    build: 
+      context: .
+    ports:
+      - 8000:8000
+
+
+
+  
+
+

@@ -1,5 +1,5 @@
 # Fetching the latest node image on alpine linux
-FROM node:alpine AS development
+FROM node:alpine AS builder
 
 # Declaring env
 ENV NODE_ENV development
@@ -9,10 +9,12 @@ WORKDIR /react-app
 
 # Installing dependencies
 COPY ["package.json", "package-lock.json*", "./"]
-RUN npm install
+RUN npm run build
 
 # Copying all the files in our project
 COPY . .
+
+EXPOSE 3000
 
 # Starting our application
 CMD npm start
